@@ -389,6 +389,7 @@ elif section == "Mood-Checker":
         st.write("“Det var godt! Bliv ved med at skinne” idk bruh 😭")
 
     elif mood == "Angry":
+        rain(emoji="😡", font_size=54, falling_speed=1.5, animation_length=6)
         st.write("### 11 Angry, Fascinating, Funny Quotes ☹️😠")
         
         st.write("""
@@ -472,6 +473,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
