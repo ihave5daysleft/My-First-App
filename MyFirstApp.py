@@ -383,6 +383,7 @@ elif section == "Mood-Checker":
         st.balloons()
         st.success("Yay! Keep shining!✨" )
     elif mood == "Bad:(":
+        rain(emoji="☕", font_size=40, falling_speed=1.5, animation_length=6)
         st.info("No worries! Have some hot chocolate. ☕")
     elif mood == "Both":
         st.balloons()
@@ -473,6 +474,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
