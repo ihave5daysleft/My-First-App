@@ -59,8 +59,39 @@ if section == "Home":
 # ==========================================
 #  SECTION 2: PIZZERIA (The Main Game)
 # ==========================================
-elif section == "Pizzeria":
+elif section == "👨‍🍳 Pizzeria":
     st.title("👨‍🍳 My Pizzeria")
+
+    # 1. Tjek om shoppen er brændt
+    if st.session_state.is_burned:
+        st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
+        st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZmxoZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4/3o72FfM5HJydzaMpfW/giphy.gif")
+        
+        if st.button("Rebuild Pizzeria (0 ⭐)"):
+            st.session_state.pizza_points = 0
+            st.session_state.is_burned = False
+            st.rerun()
+    
+    else:
+        # ALT DET HERUNDER skal være rykket ind med 4 mellemrum!
+        # Så længe det ikke brænder, vises dette:
+        
+        st.write("Each ingredient gives you **10 points** (+ bonuses)!")
+        
+        base = st.selectbox("Choose your crust:", ["Regular", "Whole grain", "Gluten-free", "Golden Crust (VIP)"])
+        toppings = st.multiselect(
+            "Select your toppings:",
+            ["Cheese", "Ham", "Pepperoni", "Pineapple", "Mushroom", "Bacon", "BBQ", "Prawns", "Potato", "Extra Cheese"]
+        )
+
+        if st.button("Bake my Pizza! 🔥"):
+            if toppings:
+                # Din bage-logik (points osv.)
+                base_points = len(toppings) * 10
+                st.session_state.pizza_points += base_points
+                st.success(f"Yum! +{base_points} ⭐")
+            else:
+                st.warning("You can't bake an empty pizza!")
 
     # --- SIDEBAR SHOP (Only visible here) ---
     st.sidebar.header("🛒 Upgrade Shop")
@@ -101,24 +132,12 @@ elif section == "Pizzeria":
         st.sidebar.info("🍀 Luck Charm Owned!")
 
     # --- BAKING SECTION ---
-
-if st.session_state.is_burned:
-    # Linje 103 - ALT herunder skal være rykket ind!
-    st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
-    rain(emoji="🔥", font_size=80, falling_speed=2.5, animation_length=6)
     
     if st.button("Start Over and Extinguish Flames"):
         st.session_state.pizza_points = 0
         st.session_state.is_burned = False
         st.rerun()
     
-    st.write("Each ingredient gives you **10 points** (+ bonuses)!")
-    
-    base = st.selectbox("Choose your crust:", ["Regular", "Whole grain", "Gluten-free", "Golden Crust (VIP)"])
-    toppings = st.multiselect(
-        "Select your toppings:",
-        ["Cheese", "Ham", "Pepperoni", "Pineapple", "Mushroom", "Bacon", "BBQ", "Prawns", "Potato", "Extra Cheese"]
-    )
 
     if st.button("Bake my Pizza!"):
         if toppings:
@@ -502,6 +521,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
