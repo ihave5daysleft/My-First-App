@@ -127,6 +127,8 @@ elif section == "Pizzeria":
     
     # 1. GOD MODE (1,000,000)
     if st.session_state.pizza_points >= 1000000:
+        rain(emoji="🍕", font_size=54, falling_speed=1.5, animation_length=6)
+        st.balloons()
         if 'god_mode_toast' not in st.session_state:
             st.toast("WOW! You are the god of pizzas!", icon="🍕")
             st.session_state.god_mode_toast = True
@@ -211,6 +213,7 @@ elif section == "Pizzeria":
                 st.error("What are they doing with those matches?!")
                 time.sleep(1)
                 st.write('They had no idea how to run a shop. They "accidentally" burned it down! ' + successor + ' enjoyed watching the pizzas crackle to dust.')
+                rain(emoji="🔥", font_size=60, falling_speed=1.5, animation_length=6)
                 
                 if st.button("The pizzeria is gone. Start over?"):
                     st.session_state.pizza_points = 0
@@ -354,8 +357,9 @@ elif section == "🎮Mini-Games":
                 point = st.session_state.forsøg
                 if point == 1:
                     st.write("### OMG!!! 🫏 You got Nothing! Congrats!")
+                    rain(emoji="😂", font_size=54, falling_speed=1.5, animation_length=6)
                 elif point < 3:
-                    st.write("### WOW! 💎 You got Diamond!")
+                    st.write("### WOW! 💎 You got Diamond!!")
                 elif point < 6:
                     st.write("### Nice! 🥇 You got Gold!")
                 elif point < 10:
@@ -438,6 +442,7 @@ elif section == "🛠️ Tools":
                 with c2:
                     if st.button("Done ✅", key=f"delete_{i}"):
                         st.session_state.todo_list.pop(i)
+                        st.balloons()
                         st.rerun()
             
             if st.button("Clear All 🗑️"):
@@ -474,6 +479,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
