@@ -502,7 +502,7 @@ elif section == "🛠️ Tools":
                     time.sleep(2) # Vent 2 sekunder
             
             # Her er listen over alle mulige svar
-                possible_answers = ["It is certain.", "It is decidedly so.", "Without a doubt.", "Client MyFirstGame: connection to server is erroring. Channel closed.", "Yes - definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "HELL YEAH.", "Signs point to yes.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⊬⟒⌇.", "Try again.", "Ask again later.", "Better not tell you now.", "Network connection lost.", "Cannot predict now.", "Concentrate and ask again.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⟟ ⎅⍜⋏⏁ ☍⋏⍜⍙.", "How would i know?.", "Hmmm, I am not in the mood for this.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful.", "Hmmmm,no.", "Hell no.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⋏⍜."]
+                possible_answers = ["It is certain.", "It is decidedly so.", "Without a doubt.", "Follow your heart.", "Yes - definitely.", "You may rely on it.", "As I see it, yes.", "Most likely.", "Outlook good.", "Yes.", "HELL YEAH.", "Signs point to yes.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⊬⟒⌇.", "Try again.", "Ask again later.", "Better not tell you now.", "Network connection lost.", "Cannot predict now.", "Concentrate and ask again.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⟟ ⎅⍜⋏⏁ ☍⋏⍜⍙.", "How would i know?.", "Hmmm, I am not in the mood for this.", "Don't count on it.", "My reply is no.", "My sources say no.", "Outlook not so good.", "Very doubtful.", "Hmmmm,no.", "Hell no.", "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⋏⍜."]
             answer = random.choice(possible_answers)
             st.markdown("---")
             # Vis svaret flot
@@ -512,6 +512,7 @@ elif section == "🛠️ Tools":
             # Ryd spørgsmålet hvis man vil (valgfrit)
         else:
             st.error("You must ask a question first! I am not dumb.")
+
 
 
 
