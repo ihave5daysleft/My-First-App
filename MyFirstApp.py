@@ -1,6 +1,7 @@
 import streamlit as st
 import random
 import time
+from streamlit_extras.let_it_rain import rain
 
 # --- 1. SETUP & VARIABLES (Always run first) ---
 st.set_page_config(page_title="My first App", page_icon="🥹")
@@ -285,7 +286,13 @@ elif section == "🎮Mini-Games":
                             elif st.session_state.game_item == "💎":
                                 points = 500 * st.session_state.multiplier
                                 st.session_state.pizza_points += points
-                                st.balloons()
+                                rain(
+                                    emoji="💎",
+                                    font_size=54,
+                                    falling_speed=5,
+                                    animation_length=1, # Regner i 1 sekund)
+                                st.success(f"JACKPOT! +{points}")
+                            st.success(f"JACKPOT! +{points}")
                                 st.success(f"JACKPOT! +{points}")
                             elif st.session_state.game_item == "💣":
                                 st.session_state.pizza_points = 0
@@ -468,4 +475,5 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
