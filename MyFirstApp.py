@@ -64,7 +64,6 @@ elif section == "Pizzeria":
 
     if st.session_state.is_burned:
         st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
-        st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZmxoZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4/3o72FfM5HJydzaMpfW/giphy.gif")
         if st.button("Rebuild Pizzeria (0 ⭐)"):
             st.session_state.pizza_points = 0
             st.session_state.is_burned = False
@@ -133,13 +132,6 @@ elif section == "Pizzeria":
             if st.session_state.golden_spade: st.info("Golden Spade Bonus Applied!")
         else:
             st.warning("You can't bake an empty pizza!")
-
-    # --- BAKING SECTION ---
-    
-    if st.button("Start Over and Extinguish Flames"):
-        st.session_state.pizza_points = 0
-        st.session_state.is_burned = False
-        st.rerun()
 
     # --- EVENTS & RANKS (Ordered from Highest to Lowest) ---
     
@@ -236,15 +228,12 @@ elif section == "Pizzeria":
                 
                 st.session_state.is_burned = True 
                 
-                if st.button("Start Over"):
+                if st.button("The pizzeria is gone. Start over?"):
                     st.session_state.pizza_points = 0
                     st.session_state.is_burned = False
                     st.session_state.multiplier = 1 # Nulstil også multiplier
                     st.rerun()
                 
-                if st.button("The pizzeria is gone. Start over?"):
-                    st.session_state.pizza_points = 0
-                    st.rerun()
             
             elif "Doctor" in successor:
                 st.write("Charles: 'You look ill. Take this medicine?'")
@@ -506,6 +495,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
