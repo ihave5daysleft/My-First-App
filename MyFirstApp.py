@@ -76,7 +76,7 @@ elif section == "Pizzeria":
         base = st.selectbox("Choose your crust:", ["Regular", "Whole grain", "Gluten-free", "Golden Crust (VIP)"])
         toppings = st.multiselect("Select your toppings:", ["Cheese", "Ham", "Pepperoni", "Pineapple", "Mushroom", "Bacon", "BBQ", "Prawns", "Potato", "Extra Cheese"])
 
-        if st.button("Bake my Pizza! 🔥"):
+        if st.button("Bake my Pizza!"):
             if toppings:
                 base_points = len(toppings) * 10
                 st.session_state.pizza_points += base_points
@@ -128,24 +128,6 @@ elif section == "Pizzeria":
         st.session_state.pizza_points = 0
         st.session_state.is_burned = False
         st.rerun()
-    
-
-    if st.button("Bake my Pizza!"):
-        if toppings:
-            base_points = len(toppings) * 10
-            oven_bonus = st.session_state.oven_level * 10
-            crust_bonus = 50 if base == "Golden Crust (VIP)" else 0
-            spade_mult = 1.5 if st.session_state.golden_spade else 1.0
-            
-            total_score = int((base_points + oven_bonus + crust_bonus) * spade_mult * st.session_state.multiplier)
-            
-            st.session_state.pizza_points += total_score
-            st.success(f"Yum! You earned {total_score} ⭐")
-            
-            if st.session_state.multiplier > 1: st.info("Bob's 2x Boost Applied!")
-            if st.session_state.golden_spade: st.info("Golden Spade Bonus Applied!")
-        else:
-            st.warning("You can't bake an empty pizza!")
 
     # --- EVENTS & RANKS (Ordered from Highest to Lowest) ---
     
@@ -512,6 +494,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
