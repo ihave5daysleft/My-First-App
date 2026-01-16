@@ -100,7 +100,7 @@ elif section == "Pizzeria":
     # --- BAKING SECTION ---
 
     if st.session_state.is_burned:
-    st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
+        st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
     
     st.write("Each ingredient gives you **10 points** (+ bonuses)!")
     
@@ -492,6 +492,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
