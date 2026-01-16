@@ -62,13 +62,6 @@ if section == "Home":
 elif section == "Pizzeria":
     st.title("👨‍🍳 My Pizzeria")
 
-    if st.session_state.is_burned:
-        st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
-        if st.button("Rebuild Pizzeria (0 ⭐)"):
-            st.session_state.pizza_points = 0
-            st.session_state.is_burned = False
-            st.rerun()
-
     # --- SIDEBAR SHOP (Only visible here) ---
     st.sidebar.header("🛒 Upgrade Shop")
     
@@ -116,14 +109,27 @@ elif section == "Pizzeria":
         ["Cheese", "Ham", "Pepperoni", "Pineapple", "Mushroom", "Bacon", "BBQ", "Prawns", "Potato", "Extra Cheese"]
     )
 
+# Her er den rettede knap-logik
     if st.button("Bake my Pizza!"):
-        if toppings:
-            base_points = len(toppings) * 10
-            oven_bonus = st.session_state.oven_level * 10
-            crust_bonus = 50 if base == "Golden Crust (VIP)" else 0
-            spade_mult = 1.5 if st.session_state.golden_spade else 1.0
+        
+        # 1. Tjek FØRST om det brænder
+        if st.session_state.is_burned:
+            st.error("YOUR PIZZERIA IS BURNED! YOU CANNOT BAKE! 🔥")
             
-            total_score = int((base_points + oven_bonus + crust_bonus) * spade_mult * st.session_state.multiplier)
+        # 2. Hvis det IKKE brænder, så tjek toppings og bag pizzaen
+        else:
+            if toppings:
+                base_points = len(toppings) * 10
+                oven_bonus = st.session_state.oven_level * 10
+                crust_bonus = 50 if base == "Golden Crust (VIP)" else 0
+                spade_mult = 1.5 if st.session_state.golden_spade else 1.0
+                
+                total_score = int((base_points + oven_bonus + crust_bonus) * spade_mult * st.session_state.multiplier)
+                
+                st.session_state.pizza_points += total_score
+                st.success(f"Yum! You earned {total_score} ⭐")
+            else:
+                st.warning("You can't bake an empty pizza!")plier)
             
             st.session_state.pizza_points += total_score
             st.success(f"Yum! You earned {total_score} ⭐")
@@ -222,8 +228,6 @@ elif section == "Pizzeria":
                 st.error("What are they doing with those matches?!")
                 time.sleep(1)
                 st.write(f'They had no idea how to run a shop. They "accidentally" burned it down! {successor} enjoyed watching the pizzas crackle to dust.')
-                
-                # Regn med ild!
                 rain(emoji="🔥", font_size=70, falling_speed=1.5, animation_length=6)
                 
                 st.session_state.is_burned = True 
@@ -495,6 +499,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
