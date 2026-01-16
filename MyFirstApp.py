@@ -286,7 +286,7 @@ elif section == "🎮Mini-Games":
                             elif st.session_state.game_item == "💎":
                                 points = 500 * st.session_state.multiplier
                                 st.session_state.pizza_points += points
-                                rain(emoji="💎", font_size=54, falling_speed=10, animation_length=5)    
+                                rain(emoji="💎", font_size=54, falling_speed=2, animation_length=4)    
                                 st.success(f"JACKPOT! +{points}")
                                 st.session_state.mole_pos = random.randint(0, 8)
                                 time.sleep(2) 
@@ -472,6 +472,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
