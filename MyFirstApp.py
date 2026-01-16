@@ -510,8 +510,9 @@ elif section == "🛠️ Tools":
             st.info(f"{answer} ⋆｡°✩")
             
             # Ryd spørgsmålet hvis man vil (valgfrit)
-            else:
-                st.error("You must ask a question first! I am not dumb.")
+        else:
+            st.error("You must ask a question first! I am not dumb.")
+
 
 
 
