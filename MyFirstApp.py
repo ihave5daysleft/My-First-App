@@ -101,7 +101,6 @@ elif section == "Pizzeria":
 
     if st.session_state.is_burned:
     st.error("🔥 YOUR PIZZERIA IS IN ASHES. YOU CAN'T BAKE!")
-    st.image("https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJmZmxoZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4ZzR4/3o72FfM5HJydzaMpfW/giphy.gif")
     
     st.write("Each ingredient gives you **10 points** (+ bonuses)!")
     
@@ -212,18 +211,22 @@ elif section == "Pizzeria":
         
         if successor != "Choose...":
             if "Stranger" in successor:
-                import time
                 st.write("Transferring the recipe...")
                 time.sleep(2) 
                 st.error("What are they doing with those matches?!")
                 time.sleep(1)
-                st.write('They had no idea how to run a shop. They "accidentally" burned it down! ' + successor + ' enjoyed watching the pizzas crackle to dust.')
+                st.write(f'They had no idea how to run a shop. They "accidentally" burned it down! {successor} enjoyed watching the pizzas crackle to dust.')
+                
+                # Regn med ild!
                 rain(emoji="🔥", font_size=70, falling_speed=1.5, animation_length=6)
-                st.session_state.is_burned = True  # NU ved spillet at det brænder!
+                
+                st.session_state.is_burned = True 
+                
                 if st.button("Start Over"):
                     st.session_state.pizza_points = 0
-                    st.session_state.is_burned = False # Nulstil når man starter forfra
-            st.rerun()
+                    st.session_state.is_burned = False
+                    st.session_state.multiplier = 1 # Nulstil også multiplier
+                    st.rerun()
                 
                 if st.button("The pizzeria is gone. Start over?"):
                     st.session_state.pizza_points = 0
@@ -489,6 +492,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
