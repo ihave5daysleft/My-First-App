@@ -418,7 +418,7 @@ elif section == "Mood-Checker":
 
 elif section == "🛠️ Tools":
     st.title("🛠️ Productivity Tools")
-    tool_choice = st.radio("Choose Tool:", ["📝 To-Do List", "🎲 Decision Maker", "⚖️ BMI calculator"], horizontal=True)
+    tool_choice = st.radio("Choose Tool:", ["📝 To-Do List", "🎲 Decision Maker", "⚖️ BMI calculator", "🎱Magic 8-Ball"], horizontal=True)
     st.markdown("---")
 
     # --- TO DO LIST ---
@@ -486,6 +486,65 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+            
+elif section == "🎱 Magic 8-Ball":
+    st.title("🎱 Magic 8-Ball")
+    st.write("Ask a Yes/No question, and I shall reveal your future...")
+
+    # 1. Lav feltet hvor man skriver sit spørgsmål
+    question = st.text_input("Type your question here:", placeholder="Will I get rich? Will it rain today?")
+
+    # 2. Knappen der ryster kuglen
+    if st.button("Shake the Ball! 🎱"):
+        if question:
+            # Lav lidt spænding med en loading-besked
+            with st.spinner("..."):
+                time.sleep(2) # Vent 2 sekunder
+            
+            # Her er listen over alle mulige svar
+            possible_answers = [
+                "It is certain.",
+                "It is decidedly so.",
+                "Without a doubt.",
+                "Yes - definitely.",
+                "You may rely on it.",
+                "As I see it, yes.",
+                "Most likely.",
+                "Outlook good.",
+                "Yes.",
+                "HELL YEAH.",
+                "Signs point to yes.",
+                "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⊬⟒⌇.",
+                "Try again.",
+                "Ask again later.",
+                "Better not tell you now.",
+                "Network connection lost.",
+                "Cannot predict now.",
+                "Concentrate and ask again.",
+                "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⟟ ⎅⍜⋏⏁ ☍⋏⍜⍙.",
+                "How would i know?.",
+                "Hmmm, I am not in the mood for this.",
+                "Don't count on it.",
+                "My reply is no.",
+                "My sources say no.",
+                "Outlook not so good.",
+                "Very doubtful."
+                "Hmmmm,no.",
+                "Hell no.",
+                "⏃⌰⟟⟒⋏ ⌇⏃⊬⌇: ⋏⍜.",
+            ]
+            
+            # Vælg et tilfældigt svar
+            answer = random.choice(possible_answers)
+            
+            # Vis svaret flot
+            st.markdown("---")
+            st.subheader("The Ball says:")
+            st.info(f"{answer} ⋆｡°✩")
+            
+            # Ryd spørgsmålet hvis man vil (valgfrit)
+        else:
+            st.error("You must ask a question first! I am not dumb.")
 
 
 
