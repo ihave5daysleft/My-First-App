@@ -59,7 +59,7 @@ if section == "Home":
 # ==========================================
 #  SECTION 2: PIZZERIA (The Main Game)
 # ==========================================
-elif section == "👨‍🍳 Pizzeria":
+elif section == "Pizzeria":
     st.title("👨‍🍳 My Pizzeria")
 
     if st.session_state.is_burned:
@@ -512,6 +512,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
