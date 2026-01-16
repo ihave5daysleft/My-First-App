@@ -7,6 +7,9 @@ from streamlit_extras.let_it_rain import rain
 st.set_page_config(page_title="My first App", page_icon="🥹")
 
 # Initialize "Backpack" (Session State)
+# --- INITIALIZE VARIABLES ---
+if 'is_burned' not in st.session_state: 
+    st.session_state.is_burned = False
 if 'pizza_points' not in st.session_state: st.session_state.pizza_points = 0
 if 'multiplier' not in st.session_state: st.session_state.multiplier = 1
 
@@ -499,6 +502,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
