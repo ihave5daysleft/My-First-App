@@ -487,7 +487,7 @@ elif section == "🛠️ Tools":
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
             
-elif section == "🎱 Magic 8-Ball":
+elif tool_choice == "🎱Magic 8-Ball":
     st.title("🎱 Magic 8-Ball")
     st.write("Ask a Yes/No question, and I shall reveal your future...")
 
@@ -545,6 +545,7 @@ elif section == "🎱 Magic 8-Ball":
             # Ryd spørgsmålet hvis man vil (valgfrit)
         else:
             st.error("You must ask a question first! I am not dumb.")
+
 
 
 
