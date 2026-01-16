@@ -129,7 +129,7 @@ elif section == "Pizzeria":
                 st.session_state.pizza_points += total_score
                 st.success(f"Yum! You earned {total_score} ⭐")
             else:
-                st.warning("You can't bake an empty pizza!")plier)
+                st.warning("You can't bake an empty pizza!")
             
             st.session_state.pizza_points += total_score
             st.success(f"Yum! You earned {total_score} ⭐")
@@ -499,6 +499,7 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
 
 
 
