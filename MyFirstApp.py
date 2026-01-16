@@ -261,65 +261,65 @@ elif section == "🎮Mini-Games":
     st.markdown("---")
 
     # --- WHACK A MOLE ---
-if game_choice == "🔨 Whack-A-Mole":
-        st.subheader("Whack-A-Mole: Arcade Edition")
-        st.write("Hit 🐹 (+50), Hit 💎 (+500), AVOID 💣!")
+    if game_choice == "🔨 Whack-A-Mole":
+            st.subheader("Whack-A-Mole: Arcade Edition")
+            st.write("Hit 🐹 (+50), Hit 💎 (+500), AVOID 💣!")
 
-        col1, col2, col3 = st.columns(3)
-        columns = [col1, col2, col3] * 3
+            col1, col2, col3 = st.columns(3)
+            columns = [col1, col2, col3] * 3
         
         # Start-værdier (hvis de ikke findes)
-        if 'mole_pos' not in st.session_state: st.session_state.mole_pos = random.randint(0, 8)
-        if 'game_item' not in st.session_state: st.session_state.game_item = "🐹"
+            if 'mole_pos' not in st.session_state: st.session_state.mole_pos = random.randint(0, 8)
+            if 'game_item' not in st.session_state: st.session_state.game_item = "🐹"
 
-        for i in range(9):
-            with columns[i]:
+            for i in range(9):
+                with columns[i]:
                 # Er muldvarpen her?
-                if i == st.session_state.mole_pos:
-                    if st.button(st.session_state.game_item, key=f"mole_{i}"):
+                    if i == st.session_state.mole_pos:
+                        if st.button(st.session_state.game_item, key=f"mole_{i}"):
                         # 1. TJEK HVAD VI RAMTE
-                        if st.session_state.game_item == "🐹":
-                            points = 50 * st.session_state.multiplier
-                            st.session_state.pizza_points += points
-                            st.success(f"HIT! +{points}")
-                        elif st.session_state.game_item == "💎":
-                            points = 500 * st.session_state.multiplier
-                            st.session_state.pizza_points += points
-                            st.balloons()
-                            st.success(f"JACKPOT! +{points}")
-                        elif st.session_state.game_item == "💣":
-                            st.session_state.pizza_points = 0
-                            st.error("BOOM! Points lost.")
+                            if st.session_state.game_item == "🐹":
+                                points = 50 * st.session_state.multiplier
+                                st.session_state.pizza_points += points
+                                st.success(f"HIT! +{points}")
+                            elif st.session_state.game_item == "💎":
+                                points = 500 * st.session_state.multiplier
+                                st.session_state.pizza_points += points
+                                st.balloons()
+                                st.success(f"JACKPOT! +{points}")
+                            elif st.session_state.game_item == "💣":
+                                st.session_state.pizza_points = 0
+                                st.error("BOOM! Points lost.")
                         
                         # 2. FLYT MULDVARP
-                        st.session_state.mole_pos = random.randint(0, 8)
+                            st.session_state.mole_pos = random.randint(0, 8)
                         
                         # 3. VÆLG NY ITEM (VIGTIGT!)
-                        chance = random.random()
-                        limit_bomb = 0.80 if st.session_state.luck_charm else 0.90
+                            chance = random.random()
+                            limit_bomb = 0.80 if st.session_state.luck_charm else 0.90
                         
-                        if chance < 0.70: st.session_state.game_item = "🐹"
-                        elif chance < limit_bomb: st.session_state.game_item = "💣"
-                        else: st.session_state.game_item = "💎"
+                            if chance < 0.70: st.session_state.game_item = "🐹"
+                            elif chance < limit_bomb: st.session_state.game_item = "💣"
+                            else: st.session_state.game_item = "💎"
                         
-                        st.rerun()
+                            st.rerun()
                 
-                else:
+                    else:
                     # Tomt hul (Miss)
-                    if st.button("🕳️", key=f"hole_{i}"):
+                        if st.button("🕳️", key=f"hole_{i}"):
                         # 1. FLYT MULDVARP
-                        st.session_state.mole_pos = random.randint(0, 8)
+                            st.session_state.mole_pos = random.randint(0, 8)
                         
                         # 2. VÆLG NY ITEM (HER VAR FEJLEN FØR!)
                         # Nu skifter vi også kostume, selvom man klikker ved siden af!
-                        chance = random.random()
-                        limit_bomb = 0.80 if st.session_state.luck_charm else 0.90
+                            chance = random.random()
+                            limit_bomb = 0.80 if st.session_state.luck_charm else 0.90
                         
-                        if chance < 0.70: st.session_state.game_item = "🐹"
-                        elif chance < limit_bomb: st.session_state.game_item = "💣"
-                        else: st.session_state.game_item = "💎"
+                            if chance < 0.70: st.session_state.game_item = "🐹"
+                            elif chance < limit_bomb: st.session_state.game_item = "💣"
+                            else: st.session_state.game_item = "💎"
                         
-                        st.rerun()
+                            st.rerun()
 
     # --- GUESS A NUMBER ---
     elif game_choice == "🔢 Guess a Number":
@@ -468,3 +468,4 @@ elif section == "🛠️ Tools":
             st.success("Remember: Numbers are just numbers! The most important thing is that you feel good and are happy. ❤️")
 
             st.info("Did you know? Muscle weighs more than fat, so BMI doesn't apply to everyone!^^")
+
