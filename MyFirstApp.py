@@ -513,9 +513,10 @@ elif section == "🛠️ Tools":
         else:
             st.error("You must ask a question first! I am not dumb.")
             
-elif game_choice == "Felicia":
+elif section == "Felicia":
         st.title("Felicia Felicia Felicia...")
         st.write("Felicia tihi tihi")
+
 
 
 
