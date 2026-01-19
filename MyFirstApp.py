@@ -31,7 +31,7 @@ st.sidebar.title("Choose section")
 # The Main Category Selector
 section = st.sidebar.selectbox(
     "Go to:", 
-    ["Home", "Pizzeria" , "Mood-Checker", "🎮Mini-Games", "🛠️ Tools"]
+    ["Home", "Pizzeria" , "Mood-Checker", "🎮Mini-Games", "🛠️ Tools", "Felicia"]
 )
 
 # Always show points in Sidebar
@@ -512,6 +512,10 @@ elif section == "🛠️ Tools":
             # Ryd spørgsmålet hvis man vil (valgfrit)
         else:
             st.error("You must ask a question first! I am not dumb.")
+            
+elif game_choice == "Felicia":
+        st.title("Felicia Felicia Felicia...")
+        st.write("Felicia tihi tihi")
 
 
 
